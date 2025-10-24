@@ -16,6 +16,10 @@ USA13 = [
 
 def verificar_rota(cidades,rota):
     
+    for cidade in rota:
+        if cidade > 12:
+            raise ValueError("Cidade inválida encontrada na rota")
+    
     if len(rota) != len(cidades) + 1:
         raise ValueError("A rota deve passar por todas as cidades e voltar a cidade inicial")
     
@@ -24,6 +28,8 @@ def verificar_rota(cidades,rota):
     
     if len(set(rota[:-1])) != len(cidades):
         raise ValueError("A rota só pode visitar cada cidade exatamente uma vez")
+    
+    
     
     
 def calcular_distancia_total(cidades, rota):
